@@ -1,0 +1,161 @@
+###################
+
+Python
+
+###################
+
+# Convert GFF to GTF
+
+gffread GCF_000186305.1_Python_molurus_bivittatus-5.0.2_genomic.gff -T -o python5.0.2.gtf
+
+# Use gtfReorder.py script to fix order of description fields
+
+python gtfReorder.py python5.0.2.gtf
+
+# Generate genome index files
+
+STAR --runMode genomeGenerate --genomeDir ./genome/index --genomeFastaFiles ./genome/GCF_000186305.1_Python_molurus_bivittatus-5.0.2_genomic.fna --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf
+
+# Run STAR
+
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_0h_AI6_HiSeq_3_2011_s1_bar_K  --readFilesIn ./trimmed_reads/Si_0h_AI6_HiSeq_3_2011_s1_bar_K.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_0h_AI6_Jan_2011_PE120_SP03_s_7_1_bar_K  --readFilesIn ./trimmed_reads/Si_0h_AI6_Jan_2011_PE120_SP03_s_7_1_bar_K.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_0h_AJ6_HiSeq_3_2011_s1_bar_B  --readFilesIn ./trimmed_reads/Si_0h_AJ6_HiSeq_3_2011_s1_bar_B.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_0h_AJ6_Jan_2011_PE120_SP03_s_7_1_bar_B  --readFilesIn ./trimmed_reads/Si_0h_AJ6_Jan_2011_PE120_SP03_s_7_1_bar_B.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_0h_AJ6_May2011_120PE_s_3_1_TC05.txt.bar_B  --readFilesIn ./trimmed_reads/Si_0h_AJ6_May2011_120PE_s_3_1_TC05.txt.bar_B.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_24h_Z14_HiSeq_3_2011_s1_bar_C  --readFilesIn ./trimmed_reads/Si_24h_Z14_HiSeq_3_2011_s1_bar_C.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_24h_Z14_Jan_2011_PE120_SP03_s_7_1_bar_C  --readFilesIn ./trimmed_reads/Si_24h_Z14_Jan_2011_PE120_SP03_s_7_1_bar_C.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_24h_Z14_May2011_120PE_s_3_1_TC05.txt.bar_C  --readFilesIn ./trimmed_reads/Si_24h_Z14_May2011_120PE_s_3_1_TC05.txt.bar_C.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_96h_Y18_HiSeq_3_2011_s1_bar_F  --readFilesIn ./trimmed_reads/Si_96h_Y18_HiSeq_3_2011_s1_bar_F.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_96h_Y18_Jan_2011_PE120_SP03_s_7_1_bar_F  --readFilesIn ./trimmed_reads/Si_96h_Y18_Jan_2011_PE120_SP03_s_7_1_bar_F.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_96h_Y18_May2011_120PE_s_3_1_TC05.txt.bar_F  --readFilesIn ./trimmed_reads/Si_96h_Y18_May2011_120PE_s_3_1_TC05.txt.bar_F.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_96h_Y23_HiSeq_3_2011_s1_bar_G  --readFilesIn ./trimmed_reads/Si_96h_Y23_HiSeq_3_2011_s1_bar_G.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_96h_Y23_Jan_2011_PE120_SP03_s_7_1_bar_G  --readFilesIn ./trimmed_reads/Si_96h_Y23_Jan_2011_PE120_SP03_s_7_1_bar_G.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_96h_Y5_HiSeq_3_2011_s1_bar_E  --readFilesIn ./trimmed_reads/Si_96h_Y5_HiSeq_3_2011_s1_bar_E.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/Si_96h_Y5_Jan_2011_PE120_SP03_s_7_1_bar_E  --readFilesIn ./trimmed_reads/Si_96h_Y5_Jan_2011_PE120_SP03_s_7_1_bar_E.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_U25_0h_33_lane2_pRNA-A_11_1  --readFilesIn ./trimmed_reads/SI_U25_0h_33_lane2_pRNA-A_11_1.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_V43_24h_26_lane3_pRNA-B_12_1  --readFilesIn ./trimmed_reads/SI_V43_24h_26_lane3_pRNA-B_12_1.fastq_trimmed.fastq
+STAR --genomeDir ./genome/index --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/python_fullDetail_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_Y24_96h_5_lane3_pRNA-B_1_1  --readFilesIn ./trimmed_reads/SI_Y24_96h_5_lane3_pRNA-B_1_1.fastq_trimmed.fastq
+
+#featureCounts
+
+./subread-1.6.3-Linux-x86_64/bin/featureCounts -t exon -g gene_id --extraAttributes protein_id -a ./genome/python_fullDetail_reorder_geneID.gtf -o ./raw_counts/python_rawCounts_01.17.19.txt ./STAR_mapped/Si_0h_AI6_HiSeq_3_2011_s1_bar_KAligned.sortedByCoord.out.bam ./STAR_mapped/Si_0h_AI6_Jan_2011_PE120_SP03_s_7_1_bar_KAligned.sortedByCoord.out.bam ./STAR_mapped/SI_U25_0h_33_lane2_pRNA-A_11_1Aligned.sortedByCoord.out.bam ./STAR_mapped/Si_0h_AJ6_HiSeq_3_2011_s1_bar_BAligned.sortedByCoord.out.bam ./STAR_mapped/Si_0h_AJ6_Jan_2011_PE120_SP03_s_7_1_bar_BAligned.sortedByCoord.out.bam ./STAR_mapped/Si_0h_AJ6_May2011_120PE_s_3_1_TC05.txt.bar_BAligned.sortedByCoord.out.bam ./STAR_mapped/Si_24h_Z14_HiSeq_3_2011_s1_bar_CAligned.sortedByCoord.out.bam ./STAR_mapped/Si_24h_Z14_Jan_2011_PE120_SP03_s_7_1_bar_CAligned.sortedByCoord.out.bam ./STAR_mapped/Si_24h_Z14_May2011_120PE_s_3_1_TC05.txt.bar_CAligned.sortedByCoord.out.bam ./STAR_mapped/SI_V43_24h_26_lane3_pRNA-B_12_1Aligned.sortedByCoord.out.bam ./STAR_mapped/Si_96h_Y18_HiSeq_3_2011_s1_bar_FAligned.sortedByCoord.out.bam ./STAR_mapped/Si_96h_Y18_Jan_2011_PE120_SP03_s_7_1_bar_FAligned.sortedByCoord.out.bam ./STAR_mapped/Si_96h_Y18_May2011_120PE_s_3_1_TC05.txt.bar_FAligned.sortedByCoord.out.bam ./STAR_mapped/Si_96h_Y23_HiSeq_3_2011_s1_bar_GAligned.sortedByCoord.out.bam ./STAR_mapped/Si_96h_Y23_Jan_2011_PE120_SP03_s_7_1_bar_GAligned.sortedByCoord.out.bam ./STAR_mapped/Si_96h_Y5_HiSeq_3_2011_s1_bar_EAligned.sortedByCoord.out.bam ./STAR_mapped/Si_96h_Y5_Jan_2011_PE120_SP03_s_7_1_bar_EAligned.sortedByCoord.out.bam ./STAR_mapped/SI_Y24_96h_5_lane3_pRNA-B_1_1Aligned.sortedByCoord.out.bam 
+
+
+
+###################
+
+Rattlesnake
+
+###################
+
+# Convert GFF to GTF
+
+gffread CroVir_rnd1.all.maker.final.homologIDs.sorted.IGB.gff -T -o cviridis.gtf
+
+# Use gtfReorder.py script to fix order of description fields
+
+python ../../PythonSI_STARmap_Jan2019/genome/gtfReorder.py cviridis.gtf
+
+# Generate genome index files
+
+STAR --runMode genomeGenerate --runThreadN 4 --genomeDir ./genome --genomeFastaFiles ./genome/CroVir_genome_L77pg_16Aug2017.final_rename.fasta --sjdbGTFfile ./genome/cviridis_reorder.gtf
+
+# Run STAR
+
+
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_0h_CV2_Cvv03 --readFilesIn ./trimmed_reads/SI_0h_CV2_Cvv03_TTAGGC__R1.trimmed.fq.gz ./trimmed_reads/SI_0h_CV2_Cvv03_TTAGGC__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_0h_CV4_Cvv01 --readFilesIn ./trimmed_reads/SI_0h_CV4_Cvv01_ATCACG__R1.trimmed.fq.gz ./trimmed_reads/SI_0h_CV4_Cvv01_ATCACG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_0h_CV7_Cvv02 --readFilesIn ./trimmed_reads/SI_0h_CV7_Cvv02_CGATGT__R1.trimmed.fq.gz ./trimmed_reads/SI_0h_CV7_Cvv02_CGATGT__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_24h_CV6A_Cvv04 --readFilesIn ./trimmed_reads/SI_24h_CV6A_Cvv04_TGACCA__R1.trimmed.fq.gz ./trimmed_reads/SI_24h_CV6A_Cvv04_TGACCA__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_24h_CV8_Cvv05 --readFilesIn ./trimmed_reads/SI_24h_CV8_Cvv05_ACAGTG__R1.trimmed.fq.gz ./trimmed_reads/SI_24h_CV8_Cvv05_ACAGTG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_96h_CV11_Cvv08 --readFilesIn ./trimmed_reads/SI_96h_CV11_Cvv08_ACTTGA__R1.trimmed.fq.gz ./trimmed_reads/SI_96h_CV11_Cvv08_ACTTGA__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_96h_CV12_Cvv06 --readFilesIn ./trimmed_reads/SI_96h_CV12_Cvv06_GCCAAT__R1.trimmed.fq.gz ./trimmed_reads/SI_96h_CV12_Cvv06_GCCAAT__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_96h_CV9_Cvv07 --readFilesIn ./trimmed_reads/SI_96h_CV9_Cvv07_CAGATC__R1.trimmed.fq.gz ./trimmed_reads/SI_96h_CV9_Cvv07_CAGATC__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_CV10_96h_CV06 --readFilesIn ./trimmed_reads/SI_CV10_96h_CV06_GAGTGG__R1.trimmed.fq.gz ./trimmed_reads/SI_CV10_96h_CV06_GAGTGG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_CV1_0h_CV04 --readFilesIn ./trimmed_reads/SI_CV1_0h_CV04_GTTTCG__R1.trimmed.fq.gz ./trimmed_reads/SI_CV1_0h_CV04_GTTTCG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/cviridis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_CV3_24h_CV05 --readFilesIn ./trimmed_reads/SI_CV3_24h_CV05_CGTACG__R1.trimmed.fq.gz ./trimmed_reads/SI_CV3_24h_CV05_CGTACG__R2.trimmed.fq.gz
+
+# Run Featurecounts
+
+../PythonSI_STARmap_Jan2019/subread-1.6.3-Linux-x86_64/bin/featureCounts -t exon -g gene_id --extraAttributes Crovir_Transcript_ID -a ./genome/cviridis_fullDetail_reorder.gtf -o ./raw_counts/CVV_allSamples_rawCounts_04.05.19.txt ./STAR_mapped/SI_0h_CV2_Cvv03Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_0h_CV4_Cvv01Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_0h_CV7_Cvv02Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_CV1_0h_CV04Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_24h_CV6A_Cvv04Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_24h_CV8_Cvv05Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_CV3_24h_CV05Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_96h_CV11_Cvv08Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_96h_CV12_Cvv06Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_96h_CV9_Cvv07Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_CV10_96h_CV06Aligned.sortedByCoord.out.bam
+
+
+
+
+
+
+
+###################
+
+Watersnake
+
+###################
+
+# Convert GFF to GTF
+
+gffread GCF_001077635.1_Thamnophis_sirtalis-6.0_genomic.gff -T -o tsirtalis.gtf
+
+# Use gtfReorder.py script to fix order of description fields
+
+python ../../PythonSI_STARmap_Jan2019/genome/gtfReorder.py tsirtalis.gtf
+
+# Generate genome index files
+
+STAR --runMode genomeGenerate --genomeDir ./genome/index --genomeFastaFiles ./genome/GCF_001077635.1_Thamnophis_sirtalis-6.0_genomic.fna --sjdbGTFfile ./genome/tsirtalis_reorder.gtf
+
+
+# Run STAR
+
+
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_0h_NR1316_Ner17 --readFilesIn ./trimmed_reads/SI_0h_NR1316_Ner17_GTCCGC__R1.trimmed.fq.gz ./trimmed_reads/SI_0h_NR1316_Ner17_GTCCGC__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_0h_NR1317_Ner18 --readFilesIn ./trimmed_reads/SI_0h_NR1317_Ner18_GTGAAA__R1.trimmed.fq.gz ./trimmed_reads/SI_0h_NR1317_Ner18_GTGAAA__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_0h_NR1416_Ner20 --readFilesIn ./trimmed_reads/SI_0h_NR1416_Ner20_GTTTCG__R1.trimmed.fq.gz ./trimmed_reads/SI_0h_NR1416_Ner20_GTTTCG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_0h_NR1464_Ner19 --readFilesIn ./trimmed_reads/SI_0h_NR1464_Ner19_GTGGCC__R1.trimmed.fq.gz ./trimmed_reads/SI_0h_NR1464_Ner19_GTGGCC__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_24h_NR1331_Ner24 --readFilesIn ./trimmed_reads/SI_24h_NR1331_Ner24_ACTGAT__R1.trimmed.fq.gz ./trimmed_reads/SI_24h_NR1331_Ner24_ACTGAT__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_24h_NR1357_Ner21 --readFilesIn ./trimmed_reads/SI_24h_NR1357_Ner21_CGTACG__R1.trimmed.fq.gz ./trimmed_reads/SI_24h_NR1357_Ner21_CGTACG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_24h_NR1388_Ner23 --readFilesIn ./trimmed_reads/SI_24h_NR1388_Ner23_GGTAGC__R1.trimmed.fq.gz ./trimmed_reads/SI_24h_NR1388_Ner23_GGTAGC__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_24h_NR1436_Ner22 --readFilesIn ./trimmed_reads/SI_24h_NR1436_Ner22_GAGTGG__R1.trimmed.fq.gz ./trimmed_reads/SI_24h_NR1436_Ner22_GAGTGG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_96h_NR1324_Ner28 --readFilesIn ./trimmed_reads/SI_96h_NR1324_Ner28_CAACTA__R1.trimmed.fq.gz ./trimmed_reads/SI_96h_NR1324_Ner28_CAACTA__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_96h_NR1327_Ner27 --readFilesIn ./trimmed_reads/SI_96h_NR1327_Ner27_CAAAAG__R1.trimmed.fq.gz ./trimmed_reads/SI_96h_NR1327_Ner27_CAAAAG__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_96h_NR1354_Ner26 --readFilesIn ./trimmed_reads/SI_96h_NR1354_Ner26_ATTCCT__R1.trimmed.fq.gz ./trimmed_reads/SI_96h_NR1354_Ner26_ATTCCT__R2.trimmed.fq.gz
+STAR --genomeDir ./genome --outFilterMultimapNmax 1 --twopassMode Basic --sjdbGTFfile ./genome/tsirtalis_reorder.gtf --quantMode GeneCounts  --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./STAR_mapped/SI_96h_NR1442_Ner25 --readFilesIn ./trimmed_reads/SI_96h_NR1442_Ner25_ATGAGC__R1.trimmed.fq.gz ./trimmed_reads/SI_96h_NR1442_Ner25_ATGAGC__R2.trimmed.fq.gz
+
+# Run Featurecounts
+
+../PythonSI_STARmap_Jan2019/subread-1.6.3-Linux-x86_64/bin/featureCounts -t exon -g gene_id --extraAttributes protein_id -a ./genome/thamnophis_fullDetail_reorder_geneID.gtf -o ./raw_counts/Ner_allSamples_rawCounts_01.23.19.txt ./STAR_mapped/SI_0h_NR1316_Ner17Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_0h_NR1317_Ner18Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_0h_NR1416_Ner20Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_0h_NR1464_Ner19Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_24h_NR1331_Ner24Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_24h_NR1357_Ner21Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_24h_NR1388_Ner23Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_24h_NR1436_Ner22Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_96h_NR1324_Ner28Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_96h_NR1327_Ner27Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_96h_NR1354_Ner26Aligned.sortedByCoord.out.bam ./STAR_mapped/SI_96h_NR1442_Ner25Aligned.sortedByCoord.out.bam
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
